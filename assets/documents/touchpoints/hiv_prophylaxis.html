@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button type="button" class="collapsible">PREVENTIVE MANAGEMENT IN HIV</button>
+  <div class="content">
+<p>Preventive management of HIV is a broad term for different interventions that protect individuals from contracting/transmitting HIV infection.</p>
+  </div>
+
+<br />
+<button type="button" class="collapsible">PRE-EXPOSURE PROPHYLAXIS (PrEP)</button>
+<div class="content">
+<p>Pre-exposure prophylaxis is the preemptive use of ARV drugs to reduce the probability of HIV negative individuals acquiring HIV infection, especially in persons who are deemed at substantial risk of acquiring HIV.</p>
+<p>Criteria for PrEP initiation<p>
+<ul>
+<li>HIV seronegative</li>
+<li>No suspicion of acute HIV infection</li>
+<li>At substantial risk of HIV infection</li>
+<li>Urinalysis to rule out proteinuria</li>
+<li>Willingness to use PrEP as prescribed</li>
+</ul>
+
+<p>PrEP minimum package<br />
+The PrEP minimum package of services includes:</p>
+<ol>
+<li>HIV testing and counselling, including index testing, self-testing and couple testing</li>
+<li>eGFR* and monitoring of kidney function</li>
+<li>Hepatitis screening</li>
+<li>Comprehensive HIV prevention including risk reduction counselling and condom/lubricant distribution 5. Assessment of need for contraceptives and/or pregnancy testing</li>
+<li>Sexually Transmitted Infection screening, diagnosis and treatment</li>
+<li>Screening for NCDs, such as diabetes mellitus and hypertension</li>
+<li>Referral for services for gender-based violence, legal aid services, or mental health issues identified during
+counselling</li>
+<li>Adherence assessment and counselling, help identify possible barriers to good adherence</li>
+</ol>
+<p><b>The preferred drug regimen for PrEP is the combination of daily TDF + FTC / TDF + 3TC. The alternate regimen for PrEP is a daily dose of TDF</b></p>
+</div>
+</br>
+
+<button type="button" class="collapsible">POST EXPOSURE PROPHYLAXIS</button>
+<div class="content">
+  <p>Evaluating exposed person’s eligibility for HIV PEP involves assessing the following:</p>
+<ul>
+<li>Timing of the potential exposure</li>
+<li>HIV status of exposed person</li>
+<li>The nature and risk of the exposure</li>
+<li>HIV status of the source of the potential exposure</li>
+</ul>
+
+<p>The exposure should be classified as “low risk” or “high risk” for HIV infection as below:</p>
+<p><img width="100%"  src="hivpro1.png" /></p>
+</div>
+<br />
+
+
+<button type="button" class="collapsible">POST SEXUAL ASSAULT EXPOSURE PROPHYLAXIS</button>
+<div class="content">
+  <p>The possibility of HIV exposure from sexual assault should be assessed at the time of the post-assault examination. The benefit of PEP in the prevention of HIV infection should be discussed with the assault survivors if the risk of HIV exposure exists.</p>
+
+<p><img width="100%"  src="hivpro2.png" /></p>
+</div>
+<br />
+
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

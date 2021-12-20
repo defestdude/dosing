@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button type="button" class="collapsible">TREATMENT FAILURE </button>
+<div class="content">
+<p>HIV treatment failure may be defined as sub-optimal treatment outcomes following the initiation of ART. Although HIV treatment failure can be classified as either virologic, immunologic or clinical failure; virologic treatment failure is the best measurement of treatment failure. Virologic failure is defined as a VL above 1000 copies/ml based on two consecutive VL measurements 3 months apart, and after an adherence intervention.</p>
+<p><img width="100%"  src="secondline1.png" /></p>
+<p><img width="100%"  src="secondline2.png" /></p>
+<p><img width="100%"  src="secondline3.png" /></p>
+</div>
+</br>
+
+<button type="button" class="collapsible">THIRD-LINE ART</button>
+<div class="content">
+<p>Third-line therapy refers to the ART offered to PLHIV in response to failure of second-line treatment. Efforts should be made to assess and optimize adherence and rule out any significant drug interactions. It is recommended that switch to third-line therapy be left in the hands of HIV specialists with requisite experience and expertise in the management of treatment-experienced HIV patients</p>
+<p>The FMOH has set up a third-line ART Committee to oversee the implementation of third-line ART in Nigeria; and designated some sites spread across the six geo-political zones of the country as third-line ART sites. Also, it has developed and disseminated the criteria for switch and operational guidance for third-line ART</p>
+</div>
+<br />
+
+
+<button type="button" class="collapsible">CRITERIA FOR SWITCH TO THIRD-LINE ART </button>
+<div class="content">
+  <p>In the event of suspected treatment failure on second-line ART, the following criteria should be met before switch to third- line ART:
+    <ul>
+  <li>The patient should be confirmed to have failed on First-line and Second-line ART</li>
+  <li>The patient should have a viral load result suggestive of treatment failure (>1000copies/ml) after at least 6 months on
+  an effective second-line ART regimen</li>
+  <li>The patient must undergo adherence assessment, followed by 3 months of documented Enhanced Adherence
+  Counselling (EAC); the EAC must assess and optimize adherence and rule out any significant drug interactions.</li>
+  <li>The patient’s repeat viral load at completion of EAC must be >1000copies/ml.</li>
+  <li>The patient’s adherence during and following EAC must be >95%.</li>
+  <li>HIV drug resistance testing (genotype or phenotype) should be done to determine the ARVs that are still active.</li>
+</ul></p>
+   <p>Patients that meet the criteria stated above for switch to third-line ART should be referred to the third-line site closest to the referring facility with a filled third-Line ART eligibility form, a recent HIV viral load result (done within the last 6 months) and result of HIV drug resistance testing.</p>
+<p><img width="100%"  src="secondline4.png" /></p>
+</div>
+<br />
+
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

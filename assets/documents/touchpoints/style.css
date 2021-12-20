@@ -1,0 +1,66 @@
+@font-face { font-family: NASCP; src: url('Montserrat-Medium.ttf'); }
+@font-face { font-family: NASCP2; src: url('Montserrat-Light.ttf'); }
+h1{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size:3vw;
+  background-color: #048863;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+.regular_block {
+  font-size:3vw;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  padding: 8px;
+}
+.container_div {
+  height: 700px;
+  overflow: scroll;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+font-family: NASCP;
+background-color: #1d9372;
+color: #ffffff;
+cursor: pointer;
+padding: 8px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size:3vw;
+}
+
+.heading_main {
+font-family: NASCP;
+padding: 8px;
+background-color: #1d9372;
+color: #ffffff;
+cursor: pointer;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size:3vw;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+background-color: #1d9372;
+color: #ffffff;
+}
+
+.content {
+font-family: NASCP2;
+padding: 0 18px;
+font-size:3vw;
+background-color: #faf6f6;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.2s ease-out;
+}

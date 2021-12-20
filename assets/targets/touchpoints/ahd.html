@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button type="button" class="collapsible">ADVANCED HIV DISEASE (AHD) PACKAGE OF CARE IN NIGERIA (ADR)</button>
+  <div class="content">
+<p>WHO defines AHD in adults, adolescents and children older than five years as CD4 cell count <200cells/mm3 or WHO stage 3 or 4 event. All children younger than five years old with HIV are considered as having advanced HIV disease.
+Disease entities associated with AHD</p>
+<p>The appearance of opportunistic infection is directly related to the extent of immune deficiency; the lower the CD4+ cell count, the higher the likelihood of appearance of opportunistic infections. The commonest opportunistic infections associated with AHD in Nigeria include tuberculosis, cryptococcal meningitis, oesophageal candidiasis, toxoplasmosis, pneumocystis jirovecii pneumonia, histoplasmosis and septicemia.
+Components of AHD package of care</p>
+These include:
+<ul>
+<li> Diagnostics for AHD and associated OIs</li>
+<li> Prophylaxis against associated OIs with AHD</li>
+<li> Preemptive treatment for OIs associated with AHD</li>
+<li> Treatment of confirmed OIs associated with AHD</li>
+<li> ART initiation in the setting of AHD</li>
+<li> Intensive adherence and monitoring</li>
+<li> Vaccination</li>
+</ul>
+<p><img width="100%"  src="ahd1.png" /></p>
+<p><img width="100%"  src="ahd2.png" /></p>
+
+</div>
+<br />
+
+<button type="button" class="collapsible">INITIATING ART IN PATIENTS WITH AHD</button>
+<div class="content">
+<p>People presenting for the first time or those returning to care should undergo history and clinical examination to evaluate for significant opportunistic infections (such as signs and symptoms of TB and signs and symptoms suggesting meningitis) before rapid ART initiation is offered. Although no longer a requirement for ART initiation, baseline CD4+ cell count testing should be performed to determine whether the patient has advanced HIV disease.</p>
+<p>People who have no clinical signs and symptoms of TB or other opportunistic infections and whose cryptococcal antigen test is negative may initiate ART the same day in combination with their package of prophylaxis. For people with CD4+ cell count < 200 cells/mm3 in settings where cryptococcal antigen testing result is not available on the same day, consideration could be given to starting fluconazole prophylaxis and discontinuing if a cryptococcal antigen screening result is subsequently found to be negative</p>
+<p>Vaccines not currently recommended for people with AHD</p>
+<ul>
+<li>BCG</li>
+<li>Rotavirus</li>
+<li>Yellow Fever</li>
+</ul>
+This is because the safety and immunogenicity of these vaccines in individuals with CD4+ cell count less than 200 cell/mm3 is not certain.
+</div>
+</br>
+
+<button type="button" class="collapsible">MANAGEMENT OF AHD AMONG CHILDREN LESS THAN TEN YEARS</button>
+<div class="content">
+  <p>All children less than 5 years are considered to have AHD. This is based on the rationale that most children younger than five years usually present for care with advanced immunosuppression, younger children have an increased risk of disease progression and mortality regardless of clinical and immune condition. For children between 5 and 9 years of age, a positive HIV test should be followed with a CD4+ test and clinical evaluation. If diagnosed with AHD, the child should receive the applicable package of care that involves screening, prevention and treatment of OIs and comorbid conditions, and optimized care.</p>
+  <p><img width="100%"  src="ahd3.png" /></p>
+</div>
+<br />
+
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

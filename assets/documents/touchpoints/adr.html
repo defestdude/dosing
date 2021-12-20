@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button type="button" class="collapsible">ADVERSE DRUG REACTIONS (ADR)</button>
+  <div class="content">
+<p>Adverse drug reaction (ADR) is defined by WHO as “a response to a drug which is noxious and unintended, and which occurs at doses normally used in man for the prophylaxis, diagnosis, or therapy of disease, or the modification of physiological function.”</p>
+</div>
+<br />
+
+<button type="button" class="collapsible">WHO SEVERITY GRADING OF ADR</button>
+<div class="content">
+<p><img width="100%"  src="adr1.png" /></p>
+<p><img width="100%"  src="adr2.jpg" /></p>
+</div>
+</br>
+
+<button type="button" class="collapsible">ON-GOING ADHERENCE FOR CLIENTS ON ART</button>
+<div class="content">
+  <p>Continuous adherence counselling is essential in ART and should be accessible to every patient on ART. This should include adherence assessments and documentation at every clinic visit; emphasis should be on the importance of continued adherence, good nutrition, and involvement of support systems (relatives, friends, peers and/or community support personnel). Ongoing adherence support should be face-face or virtual. When provided by health workers, the checklist must be used to document the interaction, and this should be filed in the client’s folder. Barriers to adherence should also be assessed and addressed.</p>
+  <p>The following factors have been associated with high adherence rates:</p>
+  <ul>
+  <li>Increased access to ART.</li>
+  <li>Individual patients, family, peers, and friends, community members, or treatment-supporter engagement in
+  adherence education.</li>
+  <li>Family-centered care when more than one family member is infected with HIV</li>
+  <li>Continuous and effective adherence counseling, which includes knowledge and understanding of HIV infection, course</li>
+  of treatment, and expected adverse reactions and what to do in the event of an adverse reaction occurring.</li>
+  <li>Drug regimen simplicity e.g. Fixed Drug Combination (low pill burden)</li>
+  <li>The use of drugs with fewer adverse effects.</li>
+</ul>
+</div>
+<br />
+
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

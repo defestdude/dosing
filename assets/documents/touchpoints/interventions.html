@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button type="button" class="collapsible">STRATEGIC INTERVENTION FOR THE ACCELERATION OF PAEDIATRIC AND ADOLESCENT HIV TREATMENT AND CARE</button>
+  <div class="content">
+    <p>The goal of the national plan for the acceleration of paediatric and adolescent HIV treatment and care is to contribute to improved health, survival, and development of all children and adolescents living with HIV by intensifying paediatric and adolescent HIV case-ﬁnding and increasing access to ART, retention in care, viral suppression, and support. </p>
+    <p>The strategic interventions outlined below were selected by stakeholders based on their likelihood to contribute to the achievement of deﬁned outputs. This supposes that other critical assumptions are met, and potential risks identiﬁed and mitigated.</p>
+
+    <img width="100%"  src="strategy-table1.png" />
+    <br />
+  </div>
+  <br />
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

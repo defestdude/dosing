@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button type="button" class="collapsible">ACCELERATION SCENARIOS </button>
+  <div class="content">
+    <p>Closing the current gap in HIV treatment and care for children and adolescents in Nigeria requires HIV testing and treatment targets which are consistent with the level of need in the country. Modeled below are three diﬀerent scenarios using programme data and projected targets. The models are, status quo model, moderate and rapid acceleration models for paediatric and adolescent ART coverage (2020-2022).  </p>
+    <p>If the status quo model is maintained in the delivery of paediatric HIV services, ART coverage for children will be at a meager 41% by 2020 and 46% by 2022.In the moderate acceleration model, the ART coverage for children will increase from 36% in 2018 to 47% by 2020 and 70% by 2022. The rapid acceleration model describes an increase in the paediatric ART coverage from 36% in 2018 to 55% by 2020 and 95% by 2022. To achieve this, there is a need for a two and three-fold increase in the number of children living with HIV to be identiﬁed in the year 2020 and 2021, respectively (ﬁgure 4a, 4b, table 3).  </p>
+    <p>For the adolescent age group, the status quo model will increase the ART coverage from 34% in 2018 to 40% in 2020 and 45% by 2022. In the moderate acceleration model, the adolescent ART coverage will increase from 34% in 2018 to 50% in 2020 and 70% by 2022. While the rapid acceleration model describes an increase in the coverage from 34% in 2018 to 55% in 2020 and 95% by 2022 (ﬁgure 5a, 5b, table 4). To achieve this, there is a need for about three and three-half fold increase in the number of adolescents living with HIV to be identiﬁed in the year 2020 and 2021, respectively. The government of Nigeria in collaboration with relevant stakeholders, have agreed to adopt the rapid acceleration model for the treatment of children and adolescents living with HIV in line with current needs. </p>
+
+    <img width="100%"  src="target-table1.png" />
+    <br />
+    <img width="100%"  src="target-table2.png" />
+    <br />
+    <img width="100%"  src="target-table3.png" />
+    <br />
+    <img width="100%"  src="target-table4.png" />
+    <br />
+    <img width="100%"  src="target-table5.png" />
+    <br />
+    <img width="100%"  src="target-table6.png" />
+    <br />
+    <img width="100%"  src="target-table7.png" />
+
+  </div>
+  <br />
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

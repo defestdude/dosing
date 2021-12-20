@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="regular_block">
+  <p><b style="color: #445577;">ANTIRETROVIRAL THERAPY</b></p>
+</div>
+<br />
+
+<button type="button" class="collapsible">INITIATING ART IN ADULTS </button>
+<div class="content">
+<p>ART should be initiated in all adults living with HIV without contraindications, regardless of WHO clinical stage and CD4+ cell count.</p>
+</div>
+</br>
+
+<button type="button" class="collapsible">INITIATING ART IN ADOLESCENTS (10 - 19 YEARS OF AGE)</button>
+<div class="content">
+<p><b>Recommendations for ART initiation in adolescents:</b>
+<ul>
+<li>It is recommended that implementation of early ART in adolescents should be prioritized and to ensure that effective</li>
+and age-appropriate counseling approaches are a prominent component of the ART package for this age group.</li>
+<li>ART should be initiated in all adolescents living with HIV, regardless of WHO clinical stage and at any CD4 + cell count.</li>
+<li>Use of DTG with NRTI backbone as the preferred 1st line regimen for adolescents including women of childbearing
+age (TDF+3TC (or FTC) + DTG). Women should however be given all necessary information and to be enabled to make
+informed choices.</li>
+<li>Adolescents with severe or advanced HIV clinical disease (WHO clinical stage 3 or 4) and a CD4 + cell count of < 200
+cells/mm3 should be given priority for initiation</li>
+</ul></p>
+</div>
+<br />
+
+
+<button type="button" class="collapsible">INITIATING ART IN CHILDREN YOUNGER THAN 10 YEARS OF AGE </button>
+<div class="content">
+  <p>ART should be initiated in all children with HIV, regardless of WHO clinical stage, or at any CD4 +cell count. Infants and young children living with HIV are more likely to die within the first two years of life from the disease in the absence of any intervention.</p>
+
+</div>
+<br />
+
+<button type="button" class="collapsible">RECOMMENDATIONS FOR USE OF ART IN TB/HIV CO-INFECTION</button>
+<div class="content">
+  <p>There is strong evidence that initiation of ART within two weeks of TB treatment is associated with marked reduction in overall TB-related morbidity and mortality.</p>
+  <p><img width="100%"  src="firstline1.png" /></p>
+</div>
+<br />
+
+
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

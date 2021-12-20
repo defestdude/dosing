@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "51446053144",
+    "firebase_url": "https://nascp-mobile-app.firebaseio.com",
+    "project_id": "nascp-mobile-app",
+    "storage_bucket": "nascp-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51446053144:android:5d3c8a7d666e896bb2c66d",
+        "android_client_info": {
+          "package_name": "ng.gov.nascp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51446053144-6pu49vlfiej5d1jmpe5hsbvjfn135mt9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ng.gov.nascp",
+            "certificate_hash": "40bdc1e8fdfd777f1e2002e00315460a619b1f63"
+          }
+        },
+        {
+          "client_id": "51446053144-i4eadku313a5qdn8150te3hjh0bkd910.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5MMqQAJtkvfb4Ym6vl0x8cKS5nZcQztQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51446053144-i4eadku313a5qdn8150te3hjh0bkd910.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button type="button" class="collapsible">THE NIGERIA PAEDIATRIC AND ADOLESCENT SERVICE DELIVERY FRAMEWORK</button>
+  <div class="content">
+    <p>The National Paediatric and Adolescent HIV Service Delivery Framework (SDF) is an integral component of the National Acceleration Plan for Paediatrics and Adolescents HIV Treatment and Care (NAP), which is aimed at improving identiﬁcation, linkage, treatment, retention, and viral suppression in children and adolescents infected with HIV in Nigeria. </p>
+    <p>The National-SDF was developed through a multi-layered process, informed by the UNICEF SDF, and harnesses available data to inform patient-centered programming for paediatric and adolescent HIV care. The National-SDF provides diﬀerentiated models of care for diﬀerent age groups on speciﬁc interventions for testing, linkage, treatment options, and retention, ensuring patient-speciﬁc approaches rather than a 'one size ﬁts all' model.</p>
+    <p>The National-SDF has nine typologies (Class A -I), which aims to guide states with age- speciﬁc strategies according to their respective typologies. The typologies will help to establish where the need is greatest along the continuum of care cascade </p>
+
+    <img width="100%"  src="service-table1.png" />
+    <br />
+  </div>
+  <br />
+  <button type="button" class="collapsible">THE SOLUTION MATRIX </button>
+  <div class="content">
+    <p>The Solution Matrix is a compendium of age disaggregated “should do” and “could do” evidence-based interventions for improved HIV case identiﬁcation, linkage, treatment, retention, and viral suppression strategies. This solution matrix was developed to identify service delivery strategies that would ﬁt the typologies identiﬁed and address areas of greatest need. “Should do” interventions were developed based on robust evidence generated from the semi-quantitative assessment of studies, while need “could do” interventions have less robust evidence but may be considered in state-speciﬁc contexts.</p>
+
+    <img width="100%"  src="service-table2.png" />
+  </div>
+  <br />
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

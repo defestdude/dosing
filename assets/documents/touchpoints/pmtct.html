@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button type="button" class="collapsible">PREVENTION OF MOTHER TO CHILD TRANSMISSION OF HIV INFECTION</button>
+  <div class="content">
+  <b style="color: #445577;">  PREVENTION OF MOTHER TO CHILD TRANSMISSION OF HIV INFECTION</b>
+<p>To stop the vertical transmission of HIV, WHO introduced a set of interrelated public health interventions designed to prevent transmission of the virus from an HIV positive mother to her child during the period of pregnancy, delivery and breastfeeding.
+  Prevention of MTCT is the package of care given to pregnant women, their families and communities, aimed at preventing transmission of HIV from infected mothers to their babies (vertical transmission). It operates on 4 pillars:</p>
+  <p><img width="100%"  src="pmtct1.png" /></p>
+  <p><img width="100%"  src="pmtct2.png" /></p>
+
+  </div>
+  <br />
+<button type="button" class="collapsible">USE OF ANTIRETROVIRAL THERAPY FOR PMTCT</button>
+<div class="content">
+  <p>Pregnancy in HIV positive woman is an absolute indication for ART. ART should be initiated in all HIV pregnant and breast- feeding women regardless of WHO clinical stage and at any CD4+ cell count and continued for life.</p>
+<p><img width="100%"  src="pmtct3.png" /></p>
+<p><img width="100%"  src="pmtct4.png" /></p>
+</div>
+</br>
+
+<button type="button" class="collapsible">ARV PROPHYLAXIS FOR HIV EXPOSED INFANTS</button>
+<div class="content">
+  <p><b>High risk infants are those:</b></p>
+<p>All HIV exposed infants should receive ARV prophylaxis. Infants at low risk of acquiring HIV from their mothers should receive NVP only once daily for 6 weeks. While infants born to mothers with HIV who are at high risk of acquiring HIV should receive dual prophylaxis with AZT (twice daily) and NVP (once daily) for the first 12 weeks of life,</p>
+<p><img width="100%"  src="pmtct5.png" /></p>
+<p>Born to women with established HIV infection who have received less than four weeks of ART at the time of delivery<br />
+OR<br /><br />
+Born to women with established HIV infection with viral load >1000 copies/mL in the four weeks before delivery<br />
+OR<br /><br />
+Born to women with incident HIV infection during pregnancy (this includes women diagnosed in labour) or breastfeeding<br />
+OR<br /><br />
+Identified for the first time during the postpartum period, with or without a negative HIV test prenatally<br /></p>
+</div>
+<br />
+
+
+<button type="button" class="collapsible">COTROMOXAZOLE PROPHYLAXIS FOR HIV EXPOSED INFANTS</button>
+<div class="content">
+  <p>Cotrimoxazole prophylaxis is recommended for HIV-exposed infants from 6 weeks of age and should be continued until HIV infection has been excluded by an age-appropriate HIV test 8 weeks after complete cessation of breastfeeding.</p>
+
+<p><img width="100%"  src="pmtct6.png" /></p>
+<p><img width="100%"  src="pmtct7.png" /></p>
+</div>
+<br />
+
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

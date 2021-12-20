@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button type="button" class="collapsible">UPDATE SUMMARY </button>
+<div class="content">
+  <p>The 2020 Guidelines are informed by the basic principles of equality, equity and social justice and they align strongly with the universal declarations of human rights. They promote universal access to comprehensive HIV/AIDS prevention, treatment and care for all persons in Nigeria. The recommendations of these guidelines are the product of careful balancing of science and public health.</p>
+</div>
+<br />
+<button type="button" class="collapsible">LINKAGE TO CARE AND TREATMENT </button>
+<div class="content">
+  <p>ART should be initiated in all adults, adolescents, pregnant and breastfeeding women, and children with a diagnosis of HIV regardless of WHO clinical stage and CD4+ cell count. This recommendation (as in the 2016 Guidelines) maintains that people who test HIV positive will be initiated on ART once they are willing and ready to start ART for life.
+However, as a priority, health care workers should initiate ART in the following;</p>
+  <p><ul>
+  <li>All adults and adolescents with severe or advanced HIV clinical disease (WHO stage 3 or 4) </li>
+  <li>All adults and adolescents with HIV and CD4+ cell count of less than 350 cells/mm3 </li>
+  <li>All HIV positive pregnant and breastfeeding women</li>
+  <li>All HIV positive children older than 5 years of age with severe or advanced disease (WHO stage 3 or 4)</li>
+  <li>All HIV positive children older than 5 years of age with CD4+ cell count less than 350 cells/mm3</li>
+  <li>All HIV positive children less than 2 years of age</li>
+  <li>All HIV positive children less than 5 years of age with CD4+ cell count of less than 750 cells/mm3 or CD4+ percentage less than 25%</li>
+  </ul>
+
+  <img width="100%"  src="summary-1.png" /> </p>
+</div>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

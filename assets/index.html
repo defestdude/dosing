@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="collapsible">RATIONALE FOR THE NATIONAL PAEDIATRIC AND ADOLESCENT ART ACCELERATION PLAN </button>
+<div class="content">
+  <p>The ﬁrst national acceleration plan for pediatric HIV treatment and care was developed in 2016 to address the poor progress with the expansion of paediatric HIV services in Nigeria. However, due to poor implementation, the plan was unable to make much impact. Current data (NASCP) still show a huge gap/unmet needs as only 51,127(36.5%) of estimated 140,000 children living with HIV in Nigeria accessed ART in 2018. Signiﬁcant gaps still exist in achieving the UNAIDS 90:90:90 targecase identiﬁcation, linkage to treatment and viral suppression by the year 2020. </p>
+  <p>If this status quo is maintained, it will be impossible to attain the UNAIDS 95:95:95 targets by 2030. The wide gap observed in the ART coverage between Adults, children, and adolescents underscores the fact that the majority of children and adolescents living with HIV are still underserved in terms of case ﬁnding, linkage to optimal ART and viral load testing coverage. The new acceleration planbuild on the achievements of the ﬁrst plan and address existing challenges through:</p>
+  <ul>
+  <li>Government ownership and improvement of funding opportunities to aid sustainability. </li>
+  <li>Mobilizing of resources and leverage on existing local funding opportunities.</li>
+  <li>Harmonization of evidence-based strategies across diﬀerent implementing partners and programmes. </li>
+  </ul>
+</div>
+<br />
+<button type="button" class="collapsible">DEVELOPMENT PROCESS OF THE NATIONAL ACCELERATION PLAN</button>
+<div class="content">
+  <p>The National Acceleration Plan for Paediatric and Adolescent HIV Care and Treatment was developed through an inclusive process led by the National AIDS and STIs Control Programme (NASCP) of the Federal Ministry of Health. The development of the plan received contributions from all stakeholders, including other agencies of government, academia, bilateral and multilateral partners, implementing partners and civil society organizations.</p>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
