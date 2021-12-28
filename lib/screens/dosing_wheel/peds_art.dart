@@ -7,6 +7,7 @@ import 'package:nascp/models/weight_model.dart';
 import 'package:nascp/screens/book_read.dart';
 import 'package:nascp/screens/dosing_wheel/ahd.dart';
 import 'package:nascp/screens/dosing_wheel/pdf_instructions.dart';
+import 'package:nascp/screens/dosing_wheel/tb.dart';
 import 'package:nascp/screens/drawer_screen.dart';
 import 'package:nascp/screens/dosing_wheel/regimens.dart';
 import 'package:nascp/screens/updater.dart';
@@ -76,8 +77,12 @@ class _PedsARTState extends State<PedsART> {
       if (_failingValue == 1) {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>
-                        AHD(weight: _weightValue, )));
+                        AHD(weight: _weightValue, tb:_tbValue)));
                 // MaterialPageRoute(builder: (context) => PdfInstructions(weight: _weightValue)));
+              } else if (_tbValue == "YES") {
+                  Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => TB(weight: _weightValue,),
+        ));
               } else {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => Regimens(
@@ -162,7 +167,7 @@ class _PedsARTState extends State<PedsART> {
         key: _scaffoldKey,
         drawer: DrawerScreen(),
         appBar: AppBar(
-          title: Text("PEDS HIV Dosing Wheel"),
+          title: Text("PEDS HIV Dosing Guide"),
           automaticallyImplyLeading: false,
         ),
         body: Container(
@@ -361,7 +366,7 @@ class _PedsARTState extends State<PedsART> {
             _dropdownError ?? "",
             style: TextStyle(color: Colors.red),
           ),
-          validated == null ? Text("") : Center(child: Text("Please select the appropriate weight"),),
+          validated == null ? Text("") : Center(child: Text("Please choose all options"),),
           SizedBox(height: 5.0),
           SizedBox(height: 50.0),
           GestureDetector(

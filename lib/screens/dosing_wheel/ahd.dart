@@ -60,7 +60,7 @@ class _AHDState extends State<AHD> {
     return Scaffold(
        key: _scaffoldKey,    
       drawer: DrawerScreen(),
-      appBar: AppBar(title: Text("PEDS HIV Dosing Wheel"),automaticallyImplyLeading: false,),
+      appBar: AppBar(title: Text("PEDS HIV Dosing Guide"),automaticallyImplyLeading: false,),
         body: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,

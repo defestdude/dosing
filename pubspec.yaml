@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.1.7+4
+version: 1.1.9+6
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -36,10 +36,10 @@ dependencies:
   #webview_flutter:
     #path: ./webview_flutter
   flutter_inappwebview: ^5.3.2
-  advance_pdf_viewer: ^2.0.0
+  #advance_pdf_viewer: ^2.0.0
   google_fonts: ^2.1.0
   matrix_gesture_detector: ^0.1.0
-  syncfusion_flutter_pdfviewer: ^19.2.51-beta
+  syncfusion_flutter_pdfviewer: ^19.4.38-beta
   download_assets: ^2.0.0
   path_provider: ^2.0.2
   pull_to_refresh: ^2.0.0

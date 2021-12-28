@@ -55,7 +55,7 @@ class _TBState extends State<TB> {
         key: _scaffoldKey,
         drawer: DrawerScreen(),
         appBar: AppBar(
-          title: Text("PEDS HIV Dosing Wheel"),
+          title: Text("PEDS HIV Dosing Guide"),
           automaticallyImplyLeading: false,
         ),
         body: Container(
@@ -118,7 +118,7 @@ class _TBState extends State<TB> {
                 ),
                 TextSpan(
                   text:
-                      'Dolutegravir (DTG) - Double the dosage of DTG to twice daily when used with rifampin for TB e.g., DTG 50mg will be doubled to 100mg daily dose and administered as 50mg twice daily. Adjust dosage for clients on pDTG',
+                      'Dolutegravir (DTG) - Double the dosage of DTG to twice daily when used with rifampicin for TB e.g., DTG 50mg will be doubled to 100mg daily dose and administered as 50mg twice daily. Adjust dosage for clients on pDTG',
                 ),
               ],
             ),

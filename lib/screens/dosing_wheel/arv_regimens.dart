@@ -32,6 +32,7 @@ class _ARVRegimensState extends State<ARVRegimens> {
   void initState() {
     loaders();
     query();
+    print(widget.risk_type);
     super.initState();
   }
 
@@ -305,7 +306,7 @@ class CategoriesScroller extends StatelessWidget {
                                   width: 40)),
                           Center(
                             child: Text(
-                              "Dosing Wheel Home",
+                              "Dosing Guide Home",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,

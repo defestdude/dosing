@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-  import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+//import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+//import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
-
+import 'package:syncfusion_flutter_pdf/pdf.dart';
 
 class BookRead extends StatefulWidget {
   String pageTitle;
@@ -16,6 +17,9 @@ class _BookReadState extends State<BookRead> {
   String pageTitle;
   int bookType;
   _BookReadState(this.bookType, this.pageTitle);  //constructor
+  //final PdfViewerController _pdfViewerController = PdfViewerController();
+  
+  PdfBookmark _pdfBookmark;
   final PdfViewerController _pdfViewerController = PdfViewerController();
   final GlobalKey<SearchToolbarState> _textSearchKey = GlobalKey();
   final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
@@ -28,7 +32,7 @@ class _BookReadState extends State<BookRead> {
   String pdfasset = "assets/documents/book_1.pdf";
 
   bool _isLoading = false;
-  PDFDocument document;
+  //PDFDocument document;
 
   loadDocument() async {
     if (bookType == 1) {
@@ -152,7 +156,15 @@ class _BookReadState extends State<BookRead> {
               ? Center(child: CircularProgressIndicator())
               : Stack(
                 children: [
-                  SfPdfViewer.asset(pdfasset,  controller: _pdfViewerController),
+                  SfPdfViewer.asset(
+                    
+                    pdfasset, 
+                    controller: _pdfViewerController,
+                    key: _pdfViewerKey,
+                    onDocumentLoaded: (PdfDocumentLoadedDetails details) {
+                        _pdfBookmark = details.document.bookmarks[0];
+                    },
+                     ),
                   Visibility(
             visible: _textSearchKey.currentState?._showToast ?? false,
             child: Align(

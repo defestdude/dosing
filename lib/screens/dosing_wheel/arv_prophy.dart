@@ -7,6 +7,7 @@ import 'package:nascp/models/arv_age_model.dart';
 import 'package:nascp/models/arv_risk_model.dart';
 import 'package:nascp/models/arv_weight_model.dart';
 import 'package:nascp/screens/book_read.dart';
+import 'package:nascp/screens/dosing_wheel/arv_prophy_two.dart';
 import 'package:nascp/screens/dosing_wheel/arv_regimens.dart';
 import 'package:nascp/screens/drawer_screen.dart';
 import 'package:nascp/screens/dosing_wheel/regimens.dart';
@@ -31,7 +32,7 @@ class _ARVProphyState extends State<ARVProphy> {
   final _scaffoldKey = GlobalKey<ScaffoldState>(); 
   String _chosenValue;
   var db;
-  var weights, age, risk;
+  var weights, age;
   int _weightValue;
   int _ageValue, _riskValue;
   var _formKey = GlobalKey<FormState>();
@@ -42,14 +43,14 @@ class _ARVProphyState extends State<ARVProphy> {
    _validateForm() {
     bool _isValid = _formKey.currentState.validate();
 
-    if ((_weightValue == null) || (_ageValue == null) || (_riskValue == null)) {
+    if ((_weightValue == null) || (_ageValue == null)) {
       setState(() => _dropdownError = "Please select all options ");
       _isValid = false;
     }      
 
     if (_isValid) {
      Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => ARVRegimens(weight: _weightValue, risk_type: _riskValue, age: _ageValue,),
+          builder: (context) => ARVProphyAdditional(weight: _weightValue, age: _ageValue,),
         ));
       //form is valid
     }
@@ -92,18 +93,7 @@ class _ARVProphyState extends State<ARVProphy> {
   });
   }
 
-  Future<List<ARVRiskModel>> fetchRisk() async{ //returns the memos as a list (array) 
-    //final db = await init();
-  
-    final maps = await db.query("arv_risk_type"); //query all the rows in a table as an array of maps
 
-    return List.generate(maps.length, (i) { //create a list of memos
-      return ARVRiskModel(              
-        id: maps[i]['id'],
-        risk_type: maps[i]['risk_type']
-      );
-  });
-  }
 
   Future<List<ARVAgeModel>> fetchAge() async{ //returns the memos as a list (array) 
     //final db = await init();
@@ -140,7 +130,7 @@ class _ARVProphyState extends State<ARVProphy> {
    
     this.weights = await fetchWeights();
     this.age = await fetchAge();
-    this.risk = await fetchRisk();
+ 
     setState(() {
           
     });
@@ -161,7 +151,7 @@ class _ARVProphyState extends State<ARVProphy> {
     return Scaffold(
        key: _scaffoldKey,    
       drawer: DrawerScreen(),
-      appBar: AppBar(title: Text("PEDS HIV Dosing Wheel"),automaticallyImplyLeading: false,),
+      appBar: AppBar(title: Text("PEDS HIV Dosing Guide"),automaticallyImplyLeading: false,),
         body: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -280,35 +270,7 @@ class _ARVProphyState extends State<ARVProphy> {
           ),
         ),
       ),
-       risk == null ? CircularProgressIndicator() : Center(
-        child: Container(
-          padding: const EdgeInsets.all(0.0),
-          child: DropdownButton<int>(
-            value: _riskValue,
-            isExpanded: true,
-            //elevation: 5,
-            style: TextStyle(color: Colors.black),
-            items:  risk.map<DropdownMenuItem<int>>((ARVRiskModel value) {
-              return DropdownMenuItem<int>(
-                value: value.id,
-                child: Text(value.risk_type),
-              );
-            }).toList(), 
-            hint: Text(
-              "HIGH RISK INFANT?",
-              style: TextStyle(
-                  color:  Colors.black,
-                  fontSize: 12,
-                 fontFamily: 'Trueno'),
-            ),
-            onChanged: (int value) {
-              setState(() {
-                _riskValue = value;
-              });
-            },
-          ),
-        ),
-      ),
+     
       _dropdownError == null
               ? SizedBox.shrink()
               : Text(

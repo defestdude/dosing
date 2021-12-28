@@ -40,7 +40,7 @@ class DrawerScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Paediatric HIV Dosing Wheel',
+                    text: 'Paediatric HIV Dosing Guide',
                     icon: Icons.local_hospital_outlined,
                     onClicked: () => selectedItem(context, 1),
                   ),
@@ -56,7 +56,7 @@ class DrawerScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Version 1.5',
+                    text: 'Version 1.1.9',
                     icon: Icons.notifications_outlined,
                     onClicked: () => selectedItem(context, 5),
                   ),

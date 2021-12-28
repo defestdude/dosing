@@ -52,12 +52,116 @@ class _MainHomeState extends State<MainHome> {
      final Size size = MediaQuery.of(context).size;
     final double categoryHeight = size.height*0.30;
     return Scaffold(
+      backgroundColor: Colors.white,
        key: _scaffoldKey,    
       drawer: DrawerScreen(),
-        body: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: Form(key: formKey, child: _buildLoginForm())));
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 50),
+               Column(
+                 crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("assets/images/coa.jpg",
+                            fit: BoxFit.fitWidth, width: 80),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset("assets/images/logo2.png",
+                              fit: BoxFit.fitWidth, width: 200),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: 2.0,
+                      width: 250,
+                      color: Color(0xffe0b644),
+                    ),
+                    Text("Federal Ministry of Health",
+                        style: TextStyle(
+                            letterSpacing: 3.4,
+                            fontFamily: "Trueno",
+                            color: Color(0xff33a082),
+                            fontWeight: FontWeight.w700))
+                  ],
+                ),
+              Expanded(
+                child: Column(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                  GestureDetector(
+               onTap: () {
+               Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
+              },
+               child: Container(
+                  width: 120,
+                  margin: EdgeInsets.only(right: 20),
+                  //height: MediaQuery.of(context).size.height * 0.30 - 150,
+                  decoration: BoxDecoration(color: Color(0xFFFFFFFF), border: Border.all(color: Colors.black45), borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Center(
+                          child: Icon(Icons.book, size:80, color: Color(0xff33a082))
+                        ),
+                       Center(
+                         child: Text(
+                            "Documents",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black, fontFamily: 'Trueno',),
+                          ),
+                       ),
+                       
+                      ],
+                    ),
+                  ),
+                ),
+             ),
+             SizedBox(height: 50),
+                  GestureDetector(
+                 onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => DWLHome()));
+              },
+                 child: Container(
+                  width: 120,
+                  margin: EdgeInsets.only(right: 20),
+                  //height: MediaQuery.of(context).size.height * 0.30 - 150,
+                  decoration: BoxDecoration(color: Color(0xFFFFFFFF), border: Border.all(color: Colors.black45), borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Center(
+                          child: Icon(Icons.local_hospital_outlined, size:80, color: Color(0xff33a082),)
+                        ),
+                       Center(
+                         child: Text(
+                            "Dosing Guide",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black, fontFamily: 'Trueno',),
+                          ),
+                       ),
+                       
+                      ],
+                    ),
+                  ),
+              ),
+               )
+                ],),
+              )
+          ],),
+        ));
   }
 
   _buildLoginForm() {
@@ -78,7 +182,7 @@ class _MainHomeState extends State<MainHome> {
            
           SizedBox(height: 25.0),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
@@ -179,7 +283,7 @@ class _MainHomeState extends State<MainHome> {
                         ),
                        Center(
                          child: Text(
-                            "Dosing Wheel",
+                            "Dosing Guide",
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.black, fontFamily: 'Trueno',),
                           ),

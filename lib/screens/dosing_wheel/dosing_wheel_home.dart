@@ -96,7 +96,7 @@ class _DWLHomeState extends State<DWLHome> {
                       ),
                       Positioned(
                           top: 70.0,
-                          child: Text('Wheel',
+                          child: Text('Guide',
                               style:
                                   TextStyle(fontFamily: 'Trueno', fontSize: 50.0))),
                       Positioned(

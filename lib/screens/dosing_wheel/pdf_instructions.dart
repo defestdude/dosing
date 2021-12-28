@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-  import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+//import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 
@@ -33,7 +33,7 @@ class _PdfInstructionsState extends State<PdfInstructions> {
   String pdfasset = "assets/documents/book_1.pdf";
 
   bool _isLoading = false;
-  PDFDocument document;
+  //PDFDocument document;
 
   loadDocument() async {
    
