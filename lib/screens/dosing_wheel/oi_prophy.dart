@@ -19,6 +19,7 @@ class OIProphy extends StatefulWidget {
 }
 
 class _OIProphyState extends State<OIProphy> {
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
   final CategoriesScroller categoriesScroller = CategoriesScroller();
   final formKey = new GlobalKey<FormState>();
 
@@ -72,7 +73,8 @@ class _OIProphyState extends State<OIProphy> {
   }
 
   void loaders() async {
-    final path = Path.join(DownloadAssetsController.assetsDir,
+    await downloadAssetsController.init();
+    final path = Path.join(downloadAssetsController.assetsDir,
         "dosing.db"); //returns a directory which stores permanent files
     var file = File(path);
     print(file.lengthSync());

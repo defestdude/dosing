@@ -24,6 +24,7 @@ class PedsART extends StatefulWidget {
 }
 
 class _PedsARTState extends State<PedsART> {
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
   final CategoriesScroller categoriesScroller = CategoriesScroller();
   final formKey = new GlobalKey<FormState>();
 
@@ -95,7 +96,8 @@ class _PedsARTState extends State<PedsART> {
   }
 
   void loaders() async {
-    final path = Path.join(DownloadAssetsController.assetsDir,
+    await downloadAssetsController.init();
+    final path = Path.join(downloadAssetsController.assetsDir,
         "dosing.db"); //returns a directory which stores permanent files
     var file = File(path);
     //print(file.lengthSync());
@@ -118,7 +120,7 @@ class _PedsARTState extends State<PedsART> {
     this.weights = await fetchWeights();
     this.ages = await fetchAge();
     setState(() {});
-    print(DownloadAssetsController.assetsDir);
+    //print(down.assetsDir);
   }
 
   Future<List<WeightModel>> fetchWeights() async {

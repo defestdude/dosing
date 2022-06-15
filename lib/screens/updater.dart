@@ -15,6 +15,7 @@ class Updater extends StatefulWidget {
 }
 
 class _UpdaterState extends State<Updater> {
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
   final _scaffoldKey = GlobalKey<ScaffoldState>(); 
   double _download_progress = 0.6;
   String message;
@@ -29,6 +30,7 @@ class _UpdaterState extends State<Updater> {
   }
 
   void loaders() async {
+    await downloadAssetsController.init();
     await _downloadAssets();
     print("Started");
   }
@@ -109,12 +111,12 @@ class _UpdaterState extends State<Updater> {
 
 
   Future _downloadAssets() async {
-    bool assetsDownloaded = await DownloadAssetsController.assetsDirAlreadyExists();
+    bool assetsDownloaded = await downloadAssetsController.assetsDirAlreadyExists();
     //print("trying");
     //await _deleteCacheDir();
-    await DownloadAssetsController.clearAssets();
+    await downloadAssetsController.clearAssets();
     try {
-      await DownloadAssetsController.startDownload(
+      await downloadAssetsController.startDownload(
         
           assetsUrl: "https://nascp.gov.ng/assets/touchpoints.zip",
           onProgress: (progressValue) {
@@ -125,32 +127,28 @@ class _UpdaterState extends State<Updater> {
               percentage = progressValue.toStringAsFixed(2);
               _progress = progressValue / 100;
               downloading = true;
-            });
-          },
-          onComplete: () {
-            setState(() {
-              message = "Download compeleted\nClick in refresh button to force download";
+
+              if (progressValue < 100) {
+                message = "Downloading - ${progressValue.toStringAsFixed(2)}";
+                //print(message);
+            } else {
+              message = "Download completed\nClick in refresh button to force download";
+              print(message);
               downloaded = true;
               downloading = false;
-              /* Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => HomeScreen()
-     
-              ));*/
-             // print(message);
-             
               Navigator.pushNamedAndRemoveUntil(context,'/',(_) => false);
+            }
             });
           },
-          onError: (exception) {
-            setState(() {
-              downloaded = false;
-              message = "Error: ${exception.toString()}";
-              print(message);
-            });
-          }
+          
+     
       );
     } on DownloadAssetsException catch (e) {
       print(e.toString());
+      setState(() {
+        downloaded = false;
+        message = "Error: ${e.toString()}";
+      });
     }
   
 }

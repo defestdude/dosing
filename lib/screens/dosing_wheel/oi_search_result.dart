@@ -34,6 +34,9 @@ class OISearchResult extends StatefulWidget {
 }
 
 class _OISearchResultState extends State<OISearchResult> {
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
+
+
   var db;
   String regimenInstructions;
   List<OIDosageModel> dosageResults;
@@ -68,8 +71,9 @@ class _OISearchResultState extends State<OISearchResult> {
   }
 
   void query() async {
+    await downloadAssetsController.init();
     // raw query
-    final path = Path.join(DownloadAssetsController.assetsDir, "dosing.db");
+    final path = Path.join(downloadAssetsController.assetsDir, "dosing.db");
     db = await openDatabase(path);
     this.dosageResults = await fetchDosageResults();
     //this.regimenInstructions = "";

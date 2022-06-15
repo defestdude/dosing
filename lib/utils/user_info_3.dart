@@ -27,7 +27,7 @@ class UserInfo3 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                width: 250,
+                width: 242,
                 child: Text(
                   regimenText,
                   style: TextStyle(
@@ -40,7 +40,10 @@ class UserInfo3 extends StatelessWidget {
                 ),
               ),
               Text(this.weightText,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-              Text(this.ageText,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),)
+              SizedBox(
+  width: 160,
+  child: Text(this.ageText,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),)
+              )
             ],
           )
         ],

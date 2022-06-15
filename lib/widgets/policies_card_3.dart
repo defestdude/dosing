@@ -17,6 +17,7 @@ class PoliciesCard3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
         margin: EdgeInsets.only(left: 24, bottom: 40),
         height: 265,

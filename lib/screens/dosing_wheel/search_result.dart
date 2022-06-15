@@ -30,6 +30,7 @@ class SearchResult extends StatefulWidget {
 }
 
 class _SearchResultState extends State<SearchResult> {
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
   var db;
   String regimenInstructions;
   List<PedsDosageModel> dosageResults;
@@ -42,7 +43,8 @@ class _SearchResultState extends State<SearchResult> {
 
   void query() async {
     // raw query
-    final path = Path.join(DownloadAssetsController.assetsDir, "dosing.db");
+    await downloadAssetsController.init();
+    final path = Path.join(downloadAssetsController.assetsDir, "dosing.db");
     db = await openDatabase(path);
     this.dosageResults = await fetchDosageResults();
     //this.regimenInstructions = "";
@@ -140,7 +142,7 @@ class _SearchResultState extends State<SearchResult> {
                   )
                 : Column(
                     children:
-                        dosageResults.map<Widget>((PedsDosageModel dosage) {
+                         dosageResults.isEmpty ? [Text("No Dosage for the selected parameters")] : dosageResults.map<Widget>((PedsDosageModel dosage) {
                       return new DosageDisplay(
                         drug: dosage.drug,
                         dosage: dosage.dose,
@@ -150,17 +152,7 @@ class _SearchResultState extends State<SearchResult> {
                       );
                     }).toList(),
                   ),
- /*ChooseTimeGroup(
-                        title: 'Side Effects',
-                        story:"Side effects may vary across children with asthma",
-                      ),
-                      SizedBox(
-                        height: 32,
-                      ),
-                      ChooseTimeGroup(
-                        title: 'Additional Information',
-                        story:"Drugs must not be administered with Antihisthamines",
-                      ),*/
+
                       SizedBox(
                         height: 32,
                       ),

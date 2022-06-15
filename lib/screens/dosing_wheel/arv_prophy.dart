@@ -22,7 +22,9 @@ class ARVProphy extends StatefulWidget {
 }
 
 class _ARVProphyState extends State<ARVProphy> {
-   final CategoriesScroller categoriesScroller = CategoriesScroller();
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
+
+  final CategoriesScroller categoriesScroller = CategoriesScroller();
   final formKey = new GlobalKey<FormState>();
 
   String email, password;
@@ -49,9 +51,21 @@ class _ARVProphyState extends State<ARVProphy> {
     }      
 
     if (_isValid) {
-     Navigator.of(context).push(MaterialPageRoute(
+      if (_ageValue == 2) {
+         Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => ARVRegimens(
+          weight:_weightValue,
+          risk_type: 2,
+          age: _ageValue,
+        ),
+      ));
+      } else {
+        Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => ARVProphyAdditional(weight: _weightValue, age: _ageValue,),
         ));
+
+      }
+     
       //form is valid
     }
   }
@@ -109,7 +123,8 @@ class _ARVProphyState extends State<ARVProphy> {
   }
 
   void loaders() async {
-    final path = Path.join(DownloadAssetsController.assetsDir, "dosing.db"); //returns a directory which stores permanent files
+    await downloadAssetsController.init();
+    final path = Path.join(downloadAssetsController.assetsDir, "dosing.db"); //returns a directory which stores permanent files
     var file = File(path);
     print(file.lengthSync());
     //var path1 = "/data/user/0/ng.gov.nascp/app_flutter/assets/update-summary.html";

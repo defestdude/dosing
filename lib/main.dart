@@ -17,7 +17,9 @@ Future main() async {
   await localhostServer.start();
   setupLocator();
   runApp(MyApp());
-  DownloadAssetsController.init(directory: "assets/");
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
+  await downloadAssetsController.init();
+  //download.init(directory: "assets/");
   //Remove this method to stop OneSignal Debugging
   OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
 

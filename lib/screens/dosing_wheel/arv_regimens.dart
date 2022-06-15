@@ -27,6 +27,7 @@ class ARVRegimens extends StatefulWidget {
 
 class _ARVRegimensState extends State<ARVRegimens> {
   // Declare a field that holds the Todo.
+   DownloadAssetsController downloadAssetsController = DownloadAssetsController();
 
   @override
   void initState() {
@@ -47,7 +48,8 @@ class _ARVRegimensState extends State<ARVRegimens> {
 
   void query() async {
     // raw query
-    final path = Path.join(DownloadAssetsController.assetsDir, "dosing.db");
+    await downloadAssetsController.init();
+    final path = Path.join(downloadAssetsController.assetsDir, "dosing.db");
     //print(path);
     db = await openDatabase(path);
     setState(() {});
@@ -103,7 +105,7 @@ class _ARVRegimensState extends State<ARVRegimens> {
 
 
   Future<List<dynamic>> pline() async {
-    final path = Path.join(DownloadAssetsController.assetsDir, "dosing.db");
+    final path = Path.join(downloadAssetsController.assetsDir, "dosing.db");
     db = await openDatabase(path);
 
     setState(() {});
@@ -118,6 +120,7 @@ class _ARVRegimensState extends State<ARVRegimens> {
   }
 
   void loaders() async {
+    await downloadAssetsController.init();
     this.flineresults = await pline();
     setState(() {});
   }

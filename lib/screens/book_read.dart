@@ -38,8 +38,10 @@ class _BookReadState extends State<BookRead> {
     if (bookType == 1) {
       pdfasset = "assets/documents/book_1.pdf";
     } else if (bookType == 2) {
+      
        pdfasset = "assets/documents/book_2.pdf";
     } else if (bookType == 3) {
+      
       pdfasset = "assets/documents/book_3.pdf";
     }
     else if (bookType == 4) {
@@ -162,7 +164,14 @@ class _BookReadState extends State<BookRead> {
                     controller: _pdfViewerController,
                     key: _pdfViewerKey,
                     onDocumentLoaded: (PdfDocumentLoadedDetails details) {
-                        _pdfBookmark = details.document.bookmarks[0];
+                      //print(details.document.bookmarks[0].runtimeType);
+                        // if (details.document.bookmarks[0] is PdfBookmark) {
+                         
+                        //   _pdfBookmark = details.document.bookmarks[0];
+                        // } else {
+                        //    _pdfBookmark = null;
+                        // }
+                        
                     },
                      ),
                   Visibility(

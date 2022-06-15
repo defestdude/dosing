@@ -23,6 +23,7 @@ class HomeScreen extends StatefulWidget {
 
 
 class _HomeScreenState extends State<HomeScreen> {
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
     final _scaffoldKey = GlobalKey<ScaffoldState>(); 
   double xOffset = 0;
   double yOffset = 0;
@@ -39,8 +40,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     
-    super.initState();
+   super.initState();
+   loaders();
     
+  }
+
+  void loaders() async{
+    await downloadAssetsController.init();
   }
 
   Future getpath() async {
@@ -48,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Directory directory = await getApplicationDocumentsDirectory();
     print("main "+directory.path);
     print("none\n");
-    print("controller " +DownloadAssetsController.assetsDir);
+    print("controller " +downloadAssetsController.assetsDir);
 
     //getpath();
   }
@@ -70,7 +76,7 @@ final ScrollController _controller = ScrollController();
         onRefresh: () async {
          
           _refreshController.refreshCompleted();
-           await DownloadAssetsController.clearAssets();
+           await downloadAssetsController.clearAssets();
           await _downloadAssets();
         },
               child: SingleChildScrollView(
@@ -518,7 +524,7 @@ final ScrollController _controller = ScrollController();
 
 
   Future _downloadAssets() async {
-    bool assetsDownloaded = await DownloadAssetsController.assetsDirAlreadyExists();
+    bool assetsDownloaded = await downloadAssetsController.assetsDirAlreadyExists();
 
    /*if (assetsDownloaded) {
       setState(() {
@@ -529,7 +535,7 @@ final ScrollController _controller = ScrollController();
     }*/
     print("trying");
     try {
-      await DownloadAssetsController.startDownload(
+      await downloadAssetsController.startDownload(
           assetsUrl: "https://nascp.gov.ng/assets/touchpoints.zip",
           onProgress: (progressValue) {
             downloaded = false;
@@ -538,26 +544,24 @@ final ScrollController _controller = ScrollController();
               message = "Downloading - ${progressValue.toStringAsFixed(2)}";
               _progress = progressValue / 100;
               downloading = true;
-            });
-          },
-          onComplete: () {
-            setState(() {
-              message = "Download compeleted\nClick in refresh button to force download";
+              if (progressValue < 100) {
+                message = "Downloading - ${progressValue.toStringAsFixed(2)}";
+                print(message);
+            } else {
+              message = "Download completed\nClick in refresh button to force download";
+              print(message);
               downloaded = true;
               downloading = false;
-              print(message);
+            }
             });
           },
-          onError: (exception) {
-            setState(() {
-              downloaded = false;
-              message = "Error: ${exception.toString()}";
-              print(message);
-            });
-          }
       );
-    } on DownloadAssetsException catch (e) {
+    }  on DownloadAssetsException catch (e) {
       print(e.toString());
+      setState(() {
+        downloaded = false;
+        message = "Error: ${e.toString()}";
+      });
     }
   
 }

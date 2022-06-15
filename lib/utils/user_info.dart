@@ -27,7 +27,7 @@ class UserInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                width: 250,
+                width: 242,
                 child: Text(
                   regimenText,
                   style: TextStyle(

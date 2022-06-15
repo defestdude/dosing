@@ -20,6 +20,7 @@ class RenderHTML extends StatefulWidget {
 }
 
 class _RenderHTMLState extends State<RenderHTML> {
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
   String touchPoint;
   String htmlFile;
   String title;
@@ -27,6 +28,8 @@ class _RenderHTMLState extends State<RenderHTML> {
   File realfile;
   String realcontents;
   bool loaded = false;
+  String maindir = "";
+  String mainfile = "";
   _RenderHTMLState(this.touchPoint, this.title); //constructor
   final urlController = TextEditingController();
   
@@ -39,6 +42,7 @@ class _RenderHTMLState extends State<RenderHTML> {
 
   void loaders() async {
     await readCounter();
+    await downloadAssetsController.init();
     print("Selected");
   }
 
@@ -118,9 +122,14 @@ class _RenderHTMLState extends State<RenderHTML> {
         }
         break;
     }
-    var dict1 = await getApplicationDocumentsDirectory();
-    var path1 = dict1.path.toString()+'/assets/$htmlFile';
+    await downloadAssetsController.init();
+    var dict1 = downloadAssetsController.assetsDir;
+    //var dict1 = await getApplicationDocumentsDirectory();
+   // var path1 = Path.join(dict1, "/$htmlFile");
+    var path1 = dict1+'/$htmlFile';
     //var path1 = "/data/user/0/ng.gov.nascp/app_flutter/assets/update-summary.html";
+    print(path1);
+   
     
     if(!File(path1).existsSync()) {
       print(path1);
@@ -135,21 +144,30 @@ class _RenderHTMLState extends State<RenderHTML> {
   }
 
 Future<String> get _localPath async {
-  final directory = await getApplicationDocumentsDirectory();
-  return directory.path;
+  await downloadAssetsController.init();
+  final directory = downloadAssetsController.assetsDir;
+  maindir = directory;
+  //final directory = await getApplicationDocumentsDirectory();
+  return directory;
 }
 
 Future<File> get _localFile async {
   final path = await _localPath;
-  return File('$path/assets/$htmlFile');
+  
+  //return File(Path.join(path, "/assets/$htmlFile"));
+  mainfile = "$path/$htmlFile";
+  return File('$path/$htmlFile');
 }
 
 Future<String> readCounter() async {
   try {
-     this.realfile = await _localFile;
-     
+      this.realfile = await _localFile;
+    
+      String tmpcontents = await this.realfile.readAsString();
      
       final lcontents = await this.realfile.readAsString();
+
+  
     // Read the file
     setState(() {
           this.realcontents = lcontents;
@@ -172,6 +190,7 @@ Future<String> readCounter() async {
 InAppWebViewController webViewController;
   @override
   Widget build(BuildContext context) {
+    print(mainfile);
      return Scaffold(
       body: loaded == true ? Column(
         children: [
@@ -211,39 +230,47 @@ InAppWebViewController webViewController;
                   },
                   child: GestureDetector(
               child: InAppWebView(
-                 initialData: InAppWebViewInitialData(
-           data: this.realcontents,
-          baseUrl: Uri.parse("file://${DownloadAssetsController.assetsDir}index.html"),
-        ),
-              
+                //initialFile: "file://${mainfile}",
+                  // initialData: InAppWebViewInitialData(
+                  // data: this.realcontents,
 
-                initialOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(
-            minimumFontSize: 25,
-            cacheEnabled: false,
-            javaScriptEnabled: true,
-            transparentBackground: true,
-            verticalScrollBarEnabled: true,
-            allowFileAccessFromFileURLs: true,
-            allowUniversalAccessFromFileURLs: true,
-            clearCache: true,
-          ),
-          android: AndroidInAppWebViewOptions(useHybridComposition: true),
-          ios: IOSInAppWebViewOptions(
-            allowingReadAccessTo: Uri.parse("file://${DownloadAssetsController.assetsDir}index.html"),
-          ),
-        ),
-                onWebViewCreated: (InAppWebViewController controller) {
-                  webViewController = controller;
-                  //webViewController.loadFile(assetFilePath: DownloadAssetsController.assetsDir);
-                },
-                onLoadStart: (controller, url) {
-                      setState(() {
-                        
-                        urlController.text = htmlFile;
-                      });
-                    },
-              ),
+                  // ),
+                  initialUrlRequest: URLRequest(url: Uri.parse("file://${mainfile}")),
+
+
+                  initialOptions: InAppWebViewGroupOptions(
+                    crossPlatform: InAppWebViewOptions(
+                      minimumFontSize: 25,
+                      cacheEnabled: false,
+                      javaScriptEnabled: true,
+                      transparentBackground: true,
+                      verticalScrollBarEnabled: true,
+                      allowFileAccessFromFileURLs: true,
+                      allowUniversalAccessFromFileURLs: true,
+                      clearCache: true,
+                      
+                    ),
+                    android: AndroidInAppWebViewOptions(
+                      useHybridComposition: true,
+                      allowFileAccess: true,
+                    ),
+                    ios: IOSInAppWebViewOptions(
+                      allowingReadAccessTo: Uri.parse("file:///Users/donaldmkpanam/Library/Developer/CoreSimulator/Devices/7E7C7562-E2D9-4559-9472-AB64724ECA69/data/Containers/Data/Application/C35A651F-7E6A-44BE-B2E3-682027521695/Documents/assets/"),
+                    ),
+                  ),
+                  onWebViewCreated: (InAppWebViewController controller) {
+                    webViewController = controller;
+                    controller.injectCSSFileFromUrl(urlFile:  Uri.parse("file:///Users/donaldmkpanam/Library/Developer/CoreSimulator/Devices/7E7C7562-E2D9-4559-9472-AB64724ECA69/data/Containers/Data/Application/C35A651F-7E6A-44BE-B2E3-682027521695/Documents/assets/style.css"));
+                    
+                  },
+                  onLoadStart: (controller, url) {
+                    setState(() {
+
+                      urlController.text = htmlFile;
+
+                    });
+                  },
+                  )
              
         
                   ),

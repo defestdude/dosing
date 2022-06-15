@@ -56,7 +56,7 @@ class DrawerScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Version 1.1.9',
+                    text: 'Version 1.2.4',
                     icon: Icons.notifications_outlined,
                     onClicked: () => selectedItem(context, 5),
                   ),

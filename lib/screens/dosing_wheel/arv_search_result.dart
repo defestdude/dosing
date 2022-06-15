@@ -32,6 +32,7 @@ class ARVSearchResult extends StatefulWidget {
 }
 
 class _ARVSearchResultState extends State<ARVSearchResult> {
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
   var db;
   String regimenInstructions;
   List<ARVDosageModel> dosageResults;
@@ -44,7 +45,8 @@ class _ARVSearchResultState extends State<ARVSearchResult> {
 
   void query() async {
     // raw query
-    final path = Path.join(DownloadAssetsController.assetsDir, "dosing.db");
+    await downloadAssetsController.init();
+    final path = Path.join(downloadAssetsController.assetsDir, "dosing.db");
     db = await openDatabase(path);
     this.dosageResults = await fetchDosageResults();
     //this.regimenInstructions = "";
@@ -141,6 +143,7 @@ where arv_regimen.id = ? and arv_dosage.weight = ? and arv_regimen.risk_type = ?
                       return new ARVDosageDisplay(
                         drug: dosage.drug,
                         dosage: dosage.dose,
+                        duration: dosage.duration,
                         route: dosage.route,
                         drug_instruction: dosage.drug_instruction,
                       );

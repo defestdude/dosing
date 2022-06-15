@@ -36,7 +36,7 @@ class ARVDosageDisplay extends StatelessWidget {
         SizedBox(
           height: 5,
         ),
-        Text('$drug'),
+        Text('Duration: $duration'),
         SizedBox(
           height: 5,
         ),

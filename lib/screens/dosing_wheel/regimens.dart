@@ -22,6 +22,7 @@ class Regimens extends StatefulWidget {
 }
 
 class _RegimensState extends State<Regimens> {
+  DownloadAssetsController downloadAssetsController = DownloadAssetsController();
   // Declare a field that holds the Todo.
 
   @override
@@ -49,8 +50,9 @@ class _RegimensState extends State<Regimens> {
   var flineresults;
 
   void query() async {
+    await downloadAssetsController.init();
     // raw query
-    final path = Path.join(DownloadAssetsController.assetsDir, "dosing.db");
+    final path = Path.join(downloadAssetsController.assetsDir, "dosing.db");
     //print(path);
     db = await openDatabase(path);
     setState(() {});
@@ -147,7 +149,7 @@ class _RegimensState extends State<Regimens> {
   }
 
   Future<List<dynamic>> pline() async {
-    final path = Path.join(DownloadAssetsController.assetsDir, "dosing.db");
+    final path = Path.join(downloadAssetsController.assetsDir, "dosing.db");
     db = await openDatabase(path);
 
     setState(() {});
@@ -162,6 +164,7 @@ class _RegimensState extends State<Regimens> {
   }
 
   void loaders() async {
+    await downloadAssetsController.init();
     this.flineresults = await pline();
     setState(() {});
   }

@@ -26,7 +26,7 @@ class ARVInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                width: 250,
+                width: 242,
                 child: Text(
                   'Post-natal ARV Prophylaxis',
                   style: TextStyle(
@@ -39,7 +39,10 @@ class ARVInfo extends StatelessWidget {
                 ),
               ),
               Text(weightBand,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-              Text(ageText,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),)
+              SizedBox(
+  width: 160,
+  child: Text(ageText,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),)
+              )
             ],
           )
         ],
